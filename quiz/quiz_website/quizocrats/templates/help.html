@@ -10,28 +10,120 @@
       background-image: url(https://www.leadquizzes.com/wp-content/uploads/2019/02/New-blog-graphic.jpg);
       background-repeat: no-repeat;
       background-size: cover;
+      font-family: 'Poppins', sans-serif;
     }
-</style>
+    h1{
+    margin-bottom: 10px;
+    }
+    label{
+        margin-bottom: 6px;
+        display: block;
+    }
+
+    .help-container p{
+        margin-bottom: 40px;
+    }
+    .help-left h2{
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .help-left h3{
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+    .help-container{
+    width: 80%;
+    margin: 50px auto;
+}
+.help-box{
+    background: #f5d836;
+    display: flex;
+}
+.help-left{
+    flex-basis: 40%;
+    padding: 40px 60px;
+    background: #f5d836;
+}
+
+.help-right{
+    flex-basis: 60%;
+    padding: 40px ;
+    background: #3cacee;
+}
+.input-row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.input-row .input-group{
+    flex-basis: 45%;
+}
+input{
+    width:80%;
+    border: none;
+    border-bottom: 1px solid hwb(107 44% 0%);
+    outline: none;
+    padding-bottom: 5px;
+}
+textarea{
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+  </style>
 <body>
     {% include 'base.html' %}
-    <h1>Need Any Help?</h1>
-    <h2>Find the ways to see various things, here!</h2>
-    <h3>How to write a quiz?</h3>
-    <div>
-        <p>In the home page, you will find some tabs showing links to write different quizzes. If you are new to this website, check out the quiz format by attending a sample quiz. You can access to it by clicking <span>Sample Quiz</span>. You will be directed to the quiz page. </p>
-        <p>Now, you might have got familiar with our quiz format. You can access more quizzes in <span>Quizzes tab</span>. Also, Quizzes are segregated by their topics. you can look over it by clicking <span>Tags</span> icon.</p>
+    <div class="help-container">
+        <h1>Need any help?</h1>
+        <p>
+
+        </p>
+        <div class="help-box">
+            <div class="help-left">
+                <h2>Give your responce</h2>
+                <form action="">
+                    <div class="input-row">
+                        <div class="input-group">
+                            
+                            <label >Name</label>
+                            <input type="text" placeholder="Yuvraj Maurya">
+                        </div>
+                        <div class="input-group">
+                        
+                            <label >Phone</label>
+                            <input type="text" placeholder="9876543210">
+                        </div>
+                        <div class="input-group">
+                            
+                            <label >Email</label>
+                            <input type="text" placeholder="abc@gmail.com">
+                        </div>
+                    </div>
+                    <label > Message</label>
+                    <textarea rows="5" placeholder="Your Message"></textarea>
+                    <button type="submit">SEND</button>
+                </form>
+            </div>
+            <div class="help-right">
+                <h2>Find the ways to see various things, here!</h2>
+                <h3>How to write a quiz?</h3>
+                <div>
+                    <p>In the home page, you will find some tabs showing links to write different quizzes. If you are new to this website, check out the quiz format by attending a sample quiz. You can access to it by clicking <span>Sample Quiz</span>. You will be directed to the quiz page. </p>
+                    <p>Now, you might have got familiar with our quiz format. You can access more quizzes in <span>Quizzes tab</span>. Also, Quizzes are segregated by their topics. you can look over it by clicking <span>Tags</span> icon.</p>
     
         
-    </div>
-    <h3>Do you want to CONDUCT a quiz?</h3>
-    <p>In this website, You can also create quiz. You can go to <span>Create Quiz</span>tab and can create a new quiz there. </p>
-    <h3>Do you want to know about your progress?</h3>
-    <div>This website stores marks you scored in every quiz you attempted. To know your progress, click <span>Progress</span> icon.</div>
-    <h3 class="know">Was This Helpful?</h3>
-    <select name="" id="">
-        <option value="">Yes</option>
-        <option value="">No</option>
-    </select>
+                </div>
+                <h3>Do you want to CONDUCT a quiz?</h3>
+                <p>In this website, You can also create quiz. You can go to <span>Create Quiz</span>tab and can create a new quiz there. </p>
+                <h3>Do you want to know about your progress?</h3>
+                <div>This website stores marks you scored in every quiz you attempted. To know your progress, click <span>Progress</span> icon.</div>
+                </div>
+            </div>
+        </div>
     {% include 'footer.html' %}
 </body>
 </html>
