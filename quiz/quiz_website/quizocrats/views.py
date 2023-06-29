@@ -25,3 +25,6 @@ def help(request):
 def samquiz(request):
   template = loader.get_template('quizpage.html')
   return HttpResponse(template.render())
+def quizanswers(request):
+  template = loader.get_template('quizanswers.html')
+  return HttpResponse(template.render())
