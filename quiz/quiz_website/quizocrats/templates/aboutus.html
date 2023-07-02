@@ -13,7 +13,11 @@
   }
 </style>
 <body>
-    {% include 'base.html' %}
+  {% if request.user.is_authenticated %}
+  {% include 'base2.html' %}
+  {% else %}
+  {% include 'base.html' %}
+{% endif %}
     <div class="container my-5">
         <div class="accordion" id="accordionExample">
           <div class="accordion-item" >

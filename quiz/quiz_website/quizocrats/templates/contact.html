@@ -13,7 +13,11 @@
     }
 </style>    
 <body>
-    {% include 'base.html' %}
+  {% if request.user.is_authenticated %}
+  {% include 'base2.html' %}
+  {% else %}
+  {% include 'base.html' %}
+{% endif %}
     <div class="container" style="color: white;">
         <h1>Contact details</h1>
         <br>
