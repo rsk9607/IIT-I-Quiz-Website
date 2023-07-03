@@ -10,4 +10,6 @@ urlpatterns = [
     path('samplequiz', views.samquiz, name='samquiz'),
     path('Answers', views.quizanswers, name='quizanswers'),
     path('logout', views.loggingout, name='logout'),
+    path('quiz', views.quiz, name='quizzes'),
+    path('create', views.create, name='create'),
 ]
