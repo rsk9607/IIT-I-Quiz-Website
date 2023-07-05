@@ -149,6 +149,12 @@ def help(request):
 def samquiz(request):
   template = loader.get_template('quizpage.html')
   return HttpResponse(template.render())
+def cppquiz(request):
+  template = loader.get_template('cppquiz.html')
+  return HttpResponse(template.render())
+def pythonquiz(request):
+  template = loader.get_template('pythonquiz.html')
+  return HttpResponse(template.render())
 
 def quizanswers(request):
   template = loader.get_template('quizanswers.html')
