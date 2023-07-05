@@ -169,10 +169,10 @@ def create(request):
   if request.method=='POST':
     name=request.POST.get('quizname')
     topics=request.POST.get('topics')
-    diffi=request.POST.get('diff')
+
     questions=request.POST.get('que')
     time=request.POST.get('time')
-    quiz=quizzes(quiz_name=name,topics=topics,difficulty=diffi,questions=questions,time=time)
+    quiz=quizzes(quiz_name=name,topics=topics,questions=questions,time=time)
     quiz.save()
     return redirect(home)
   return render(request,'createquiz.html')
