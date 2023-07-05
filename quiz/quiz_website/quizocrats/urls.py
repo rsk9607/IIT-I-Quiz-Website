@@ -12,4 +12,7 @@ urlpatterns = [
     path('logout', views.loggingout, name='logout'),
     path('quiz', views.quiz, name='quizzes'),
     path('create', views.create, name='create'),
+    path('c++quiz', views.cppquiz, name='cppquiz'),
+    path('pythonquiz', views.pythonquiz, name='pythonquiz'),
+
 ]
