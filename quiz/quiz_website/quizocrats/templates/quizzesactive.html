@@ -5,38 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Quizzes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+      body{
+          background-image: url(https://as2.ftcdn.net/v2/jpg/04/39/13/37/1000_F_439133751_qALNX4ZKuphjpCLPGtASIvoUxwUNLxk2.jpg) ;
+          background-repeat: no-repeat;
+          background-size: 100% 1000px;
+      }
+      a{
+          text-decoration: none;
+      }
+      .header{
+          margin-top: 100px;
+           margin-left:20%;
+          color: rgb(82, 196, 143);
+      }
+      .quiz_links{
+          margin-left: 30%;
+          margin-bottom: 10px;
+         text-align: center;
+          padding: 5px 2px 5px 5px;
+          border: 2px solid rgb(91, 45, 164);
+          width: 250px;
+          height: 42px;
+          border-radius: 6px;
+          font-family:  Geneva, Tahoma, sans-serif;
+          font-size: 25px;
+          text-decoration: none;
+      }
+      .quiz_links a{
+          color: rgb(91, 45, 164);
+          
+      }
+      .quiz_links a:hover{
+          color: rgb(247, 248, 246);
+         
+      }
+      .quiz_links:hover{
+          background-color: rgb(91, 45, 164);
+          color: white;
+      }
+  </style>
   </head>
   <body>
-    <ul class="nav nav-underline nav-fill">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Given</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Progress</a>
-        </li>
-    </ul>
+    {% include 'base2.html' %}
+    <h1 class="header"><span>Find all available Quizzes here!</span></h1>
+    <div class="quiz_links"><a href="">Quiz on HTML</a></div>
+    <div class="quiz_links"><a href="">Quiz on C++</a></div>
+    <div class="quiz_links"><a href="">Quiz on PYTHON</a></div>
+    <div class="quiz_links"><a href="">Quiz on JAVA</a></div>
+    <div class="quiz_links"><a href="">Quiz on PYTHON</a></div>
+    <div class="quiz_links"><a href="">Quiz on C++</a></div>
     {% for x in actqui %}
-
-    
-      <div class="card w-75 m-3">
-        <div class="card-body">
-          <h5 class="card-title">{{x.quiz_name}}</h5>
-          <p class="card-text">
-            <ul class="list-group">
-                <li class="list-group-item"><h6>Topics: {{x.topics}}</h6></li>
-
-                <li class="list-group-item"><h6>No. of questions: {{x.questions}}</h6></li>
-                <li class="list-group-item"><h6>Time: {{x.time}}</h6></li>
-              </ul>
-          </p>
-          <a href="#" class="btn btn-primary">Start Quiz</a>
-        </div>
-      </div>  
-    
+    <div class="quiz_links"><a href="">Quiz on {{x.quiz_name}}</a></div>
     {% endfor %}
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>
 </html>
