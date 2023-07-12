@@ -180,7 +180,7 @@ def create(request):
   if request.method=='POST':
     name=request.POST.get('quizname')
     topics=request.POST.get('topics')
-
+    user=request.user.username
     questions=request.POST.get('que')
     time=request.POST.get('time')
     ques1=request.POST.get('Q1')
@@ -213,7 +213,7 @@ def create(request):
     op5_2=request.POST.get('Op5.2')
     op5_3=request.POST.get('Op5.3')
     op5_4=request.POST.get('Op5.4')
-    quiz=quizzes(quiz_name=name,topics=topics,questions=questions,time=time,ques1=ques1,ques2=ques2,ques3=ques3,ques4=ques4,ques5=ques5,ans1=ans1,ans2=ans2,ans3=ans3,ans4=ans4,ans5=ans5,op1_1=op1_1,op1_2=op1_2,op1_3=op1_3,op1_4=op1_4,op2_1=op2_1,op2_2=op2_2,op2_3=op2_3,op2_4=op2_4,op3_1=op3_1,op3_2=op3_2,op3_3=op3_3,op3_4=op3_4,op4_1=op4_1,op4_2=op4_2,op4_3=op4_3,op4_4=op4_4,op5_1=op5_1,op5_2=op5_2,op5_3=op5_3,op5_4=op5_4,)
+    quiz=quizzes(quiz_name=name,username=user,topics=topics,questions=questions,time=time,ques1=ques1,ques2=ques2,ques3=ques3,ques4=ques4,ques5=ques5,ans1=ans1,ans2=ans2,ans3=ans3,ans4=ans4,ans5=ans5,op1_1=op1_1,op1_2=op1_2,op1_3=op1_3,op1_4=op1_4,op2_1=op2_1,op2_2=op2_2,op2_3=op2_3,op2_4=op2_4,op3_1=op3_1,op3_2=op3_2,op3_3=op3_3,op3_4=op3_4,op4_1=op4_1,op4_2=op4_2,op4_3=op4_3,op4_4=op4_4,op5_1=op5_1,op5_2=op5_2,op5_3=op5_3,op5_4=op5_4,)
     quiz.save()
     return redirect(home)
   return render(request,'createquiz.html')
