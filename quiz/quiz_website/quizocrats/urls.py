@@ -14,6 +14,6 @@ urlpatterns = [
     path('create', views.create, name='create'),
     path('c++quiz', views.cppquiz, name='cppquiz'),
     path('pythonquiz', views.pythonquiz, name='pythonquiz'),
-    path('adminquiz', views.adminquiz, name='adminquiz'),
+    path('adminquiz/<name>', views.adminquiz, name='adminquiz'),
 
 ]

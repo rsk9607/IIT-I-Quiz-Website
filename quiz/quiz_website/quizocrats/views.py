@@ -149,18 +149,22 @@ def help(request):
 def samquiz(request):
   template = loader.get_template('quizpage.html')
   return HttpResponse(template.render())
+
 def cppquiz(request):
   template = loader.get_template('cppquiz.html')
   return HttpResponse(template.render())
+
 def pythonquiz(request):
   template = loader.get_template('pythonquiz.html')
   return HttpResponse(template.render())
-def adminquiz(request):
-  admquiz=quizzes.objects.all()
+
+def adminquiz(request,name):
+  admquiz=quizzes.objects.filter(quiz_name=name)[0]
   context={
     'admque':admquiz
   }
   return render(request,'adminquiz.html',context)
+
 def quizanswers(request):
   template = loader.get_template('quizanswers.html')
   return HttpResponse(template.render())
