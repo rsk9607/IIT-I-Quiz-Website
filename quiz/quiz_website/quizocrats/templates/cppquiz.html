@@ -162,7 +162,7 @@
     user-select: none;
     }
     
-    .quiz_box header .timer .timer_sec{
+    .quiz_box header .timer .timer_sec,.quiz_box header .timer .timer_sec1{
     font-size: 18px;
     font-weight: 500;
     height: 30px;
@@ -400,7 +400,8 @@
             <div class="title">Quizocrats</div>
             <div class="timer">
                 <div class="time_left_txt">Time Left</div>
-                <div class="timer_sec">600sec</div>
+                <div class="timer_sec">10</div>
+                <div class="timer_sec1">00</div>
             </div>
             <div class="time_line"></div>
         </header>
@@ -519,6 +520,7 @@ const option_list = document.querySelector(".option_list");
 const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
+const timeCount1 = document.querySelector(".timer .timer_sec1");
 
 start_btn.onclick = ()=>{
     info_box.classList.add("activeInfo");
@@ -533,7 +535,7 @@ continue_btn.onclick = ()=>{
     quiz_box.classList.add("activeQuiz"); 
     showQuetions(0); 
     queCounter(1); 
-    startTimer(600); 
+    startTimer(59,9); 
     
 }
 
@@ -625,12 +627,27 @@ function showResult(){
     }
 }
 
-function startTimer(time){
+function startTimer(time1,time){
     counter = setInterval(timer, 1000);
     function timer(){
         timeCount.textContent = time;
-        time--; 
-        if(time < 9){ 
+        timeCount1.textContent = time1;
+        time1--;
+        if(time1 < 9){ 
+            let addZero = timeCount1.textContent; 
+            timeCount1.textContent = "0" + addZero; 
+        }
+        if(time1==0){
+            if(time==0){
+                showResult();
+            }
+            time1=60;
+            time--; 
+
+        }
+        
+        
+        if(time < 10){ 
             let addZero = timeCount.textContent; 
             timeCount.textContent = "0" + addZero; 
         }
