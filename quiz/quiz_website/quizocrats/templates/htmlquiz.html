@@ -162,7 +162,7 @@
     user-select: none;
     }
     
-    .quiz_box header .timer .timer_sec{
+    .quiz_box header .timer .timer_sec,.quiz_box header .timer .timer_sec1{
     font-size: 18px;
     font-weight: 500;
     height: 30px;
@@ -400,7 +400,8 @@
             <div class="title">Quizocrats</div>
             <div class="timer">
                 <div class="time_left_txt">Time Left</div>
-                <div class="timer_sec">600sec</div>
+                <div class="timer_sec">10</div>
+                <div class="timer_sec1">00</div>
             </div>
             <div class="time_line"></div>
         </header>
@@ -448,26 +449,26 @@
     let questions = [
   {
   numb: 1,
-  question: "Choose the correct HTML element to define important text",
+  question: "What are the types of lists available in HTML?",
   
-  answer: "<strong>",
+  answer: "Ordered, Unordered Lists",
   options: [
-    "<important>",
-    "<i>",
-    "<strong>",
-    "<b>"
+    "Ordered, Unordered Lists",
+    "Bulleted, Numbered Lists",
+    "Named, Unnamed Lists",
+    "None of the above"
   ]
 },
   {
   numb: 2,
-  question: "What is the correct HTML for creating a hyperlink?",
+  question: "Which of the following is correct about HTML?",
   
-  answer: "<a href='http://google.com/'>W3Schools</a>",
+  answer: "HTML uses tags defined within the language",
   options: [
-    "<a href='http://google.com/'>google</a>",
-    "<a url='http://google.com/'>google</a>",
-    "<a name='http://google.com/'>google</a>",
-    "<a>http://google.com/</a>"
+    "HTML uses User Defined Tags",
+    "HTML uses tags defined within the language",
+    "Both",
+    "None of the above"
   ]
 },
   {
@@ -484,14 +485,14 @@
 },
   {
     numb: 4,
-    question: "Which of these elements are all <table> elements?",
+    question: "Which attribute is used to provide a unique name to an HTML element?",
     
-    answer: "<table><tr><td>",
+    answer: "id",
     options: [
-      "<table><tr><td>",
-      "<table><head><tfoot>",
-      "<thead><body><tr>",
-      "<table><tr><tt>"
+      "id",
+      "class",
+      "type",
+      "None of the above"
     ]
 },
   {
@@ -517,6 +518,8 @@ const option_list = document.querySelector(".option_list");
 const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
+const timeCount1 = document.querySelector(".timer .timer_sec1");
+
 
 start_btn.onclick = ()=>{
     info_box.classList.add("activeInfo");
@@ -531,7 +534,7 @@ continue_btn.onclick = ()=>{
     quiz_box.classList.add("activeQuiz"); 
     showQuetions(0); 
     queCounter(1); 
-    startTimer(600); 
+    startTimer(59,9); 
     
 }
 
@@ -623,12 +626,27 @@ function showResult(){
     }
 }
 
-function startTimer(time){
+function startTimer(time1,time){
     counter = setInterval(timer, 1000);
     function timer(){
         timeCount.textContent = time;
-        time--; 
-        if(time < 9){ 
+        timeCount1.textContent = time1;
+        time1--;
+        if(time1 < 9){ 
+            let addZero = timeCount1.textContent; 
+            timeCount1.textContent = "0" + addZero; 
+        }
+        if(time1==0){
+            if(time==0){
+                showResult();
+            }
+            time1=60;
+            time--; 
+
+        }
+        
+        
+        if(time < 10){ 
             let addZero = timeCount.textContent; 
             timeCount.textContent = "0" + addZero; 
         }
