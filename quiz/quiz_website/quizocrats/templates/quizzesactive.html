@@ -49,12 +49,14 @@
   <body>
     {% include 'base2.html' %}
     <h1 class="header"><span>Find all available Quizzes here!</span></h1>
-    <div class="quiz_links"><a href="">Quiz on HTML</a></div>
+    <div class="quiz_links"><a href="/htmlquiz">Quiz on HTML</a></div>
     <div class="quiz_links"><a href="/c++quiz">Quiz on C++</a></div>
     <div class="quiz_links"><a href="/pythonquiz">Quiz on PYTHON</a></div>
-    <div class="quiz_links"><a href="">Quiz on JAVA</a></div>
-    <div class="quiz_links"><a href="">Quiz on PYTHON</a></div>
-    <div class="quiz_links"><a href="">Quiz on C++</a></div>
+    <div class="quiz_links"><a href="/javascriptquiz">Quiz on JAVASCRIPT</a></div>
+    <div class="quiz_links"><a href="/aiquiz">Quiz on AI</a></div>
+    <div class="quiz_links"><a href="/mlquiz">Quiz on ML</a></div>
+    <div class="quiz_links"><a href="/djangoquiz">Quiz on DJango </a></div>
+    <div class="quiz_links"><a href="/cssquiz">Quiz on CSS</a></div>
     {% for x in actqui %}
     <div class="quiz_links"><a href="adminquiz/{{x.quiz_name}}">Quiz on {{x.quiz_name}}</a></div>
     {% endfor %}

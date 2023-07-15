@@ -14,6 +14,12 @@ urlpatterns = [
     path('create', views.create, name='create'),
     path('c++quiz', views.cppquiz, name='cppquiz'),
     path('pythonquiz', views.pythonquiz, name='pythonquiz'),
+    path('htmlquiz', views.htmlquiz, name='htmlquiz'),
+    path('javascriptquiz', views.javascriptquiz, name='javascriptquiz'),
+    path('cssquiz', views.cssquiz, name='cssquiz'),
+    path('aiquiz', views.aiquiz, name='aiquiz'),
+    path('mlquiz', views.mlquiz, name='mlquiz'),
+    path('djangoquiz', views.djangoquiz, name='djangoquiz'),
     path('adminquiz/<name>', views.adminquiz, name='adminquiz'),
 
 ]

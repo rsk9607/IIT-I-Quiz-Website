@@ -158,6 +158,30 @@ def pythonquiz(request):
   template = loader.get_template('pythonquiz.html')
   return HttpResponse(template.render())
 
+def htmlquiz(request):
+  template = loader.get_template('htmlquiz.html')
+  return HttpResponse(template.render())
+
+def javascriptquiz(request):
+  template = loader.get_template('javascriptquiz.html')
+  return HttpResponse(template.render())
+
+def cssquiz(request):
+  template = loader.get_template('cssquiz.html')
+  return HttpResponse(template.render())
+
+def aiquiz(request):
+  template = loader.get_template('aiquiz.html')
+  return HttpResponse(template.render())
+
+def mlquiz(request):
+  template = loader.get_template('mlquiz.html')
+  return HttpResponse(template.render())
+
+def djangoquiz(request):
+  template = loader.get_template('djangoquiz.html')
+  return HttpResponse(template.render())
+
 def adminquiz(request,name):
   admquiz=quizzes.objects.filter(quiz_name=name)[0]
   context={
