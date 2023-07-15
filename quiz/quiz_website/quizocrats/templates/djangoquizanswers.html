@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizocrats-Answers</title>
+    <style>
+        .questions{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+        }
+        #correct{
+            color: white;
+            background-color: rgb(108, 185, 108);
+        }
+      .options{
+        padding: 20px 0px;
+        display: block;   
+     }
+
+      .options{
+        width: 500px;
+        background: aliceblue;
+        border: 1px solid #84c5fe;
+        border-radius: 5px;
+        padding: 8px 15px;
+        font-size: 17px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+     }
+    </style>
+</head>
+<body>
+   
+     <div class="questions">1.What is Django in python?</div> 
+     <div class="options" id="correct">A framework</div>
+     <div class="options">A library</div>
+     <div class="options">A function</div>
+     <div class="options">A script</div>
+    
+     <div class="questions">2.How does Django handle URL routing?</div>
+     <div class="options">By using functions</div>
+     <div class="options">By using a fixed path</div>
+     <div class="options">By using classes</div>
+     <div class="options" id="correct">By using regular expressions</div>
+     
+      
+      <div class="questions">3.What is the default database used in Django?</div>
+      <div class="options">Oracle</div>
+      <div class="options" id="correct">SQLite</div>
+      <div class="options">PostgreSQL</div>
+      <div class="options">MySQL</div>
+   
+      <div class="questions">4.What does the Django ORM [Object-Relational Mapping] do?</div>
+      <div class="options" id="correct">Maps objects to relational database tables</div>
+      <div class="options">Maps relational database tables to objects</div>
+      <div class="options">Provides data validation</div>
+      <div class="options">Manages database connections</div>
+    
+ 
+      <div class="questions">5.What is Django's staticfiles app used for?</div>
+      <div class="options">Generating dynamic HTML</div>
+      <div class="options" id="correct">Serving static files like images, CSS, and JavaScript</div>
+      <div class="options">Handling user authentication</div>
+      <div class="options">Storing data in cache</div>
+     
+</body>
+</html>
