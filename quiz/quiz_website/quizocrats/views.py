@@ -7,7 +7,7 @@ from django.contrib.auth.hashers import make_password,check_password
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.shortcuts import redirect
-from .models import quizzes
+from .models import quizzes,questionare
 # Create your views here.
 def home(request):
   if request.method=='POST':
@@ -206,42 +206,40 @@ def quiz(request):
 
 def create(request):
   if request.method=='POST':
+    if 'Q1' in request.POST:
+      quizname=request.POST.get('quizname')
+      quest=request.POST.get('que')
+      admquiz=quizzes.objects.filter(quiz_name=quizname)[0]  
+      for i in range(int(quest)):
+
+        ques_question=request.POST.get('Q'+str(i+1))
+        ques_correct_opt=request.POST.get('A'+str(i+1))
+        ques_opt1=request.POST.get('Op.1'+str(i+1))
+        ques_opt2=request.POST.get('Op.2'+str(i+1))
+        ques_opt3=request.POST.get('Op.3'+str(i+1))
+        ques_opt4=request.POST.get('Op.4'+str(i+1))
+        ques=questionare(quiz=admquiz,question=ques_question,correct_opt=ques_correct_opt,opt1=ques_opt1,opt2=ques_opt2,opt3=ques_opt3,opt4=ques_opt4)
+        ques.save()     
+      return redirect(create)
     name=request.POST.get('quizname')
     topics=request.POST.get('topics')
-    user=request.user.username
-    questions=request.POST.get('que')
+
+    question=request.POST.get('que')
     time=request.POST.get('time')
-    ques1=request.POST.get('Q1')
-    ans1=request.POST.get('A1')
-    op1_1=request.POST.get('Op1.1')
-    op1_2=request.POST.get('Op1.2')
-    op1_3=request.POST.get('Op1.3')
-    op1_4=request.POST.get('Op1.4')
-    ques2=request.POST.get('Q2')
-    ans2=request.POST.get('A2')
-    op2_1=request.POST.get('Op2.1')
-    op2_2=request.POST.get('Op2.2')
-    op2_3=request.POST.get('Op2.3')
-    op2_4=request.POST.get('Op2.4')
-    ques3=request.POST.get('Q3')
-    ans3=request.POST.get('A3')
-    op3_2=request.POST.get('Op3.1')
-    op3_1=request.POST.get('Op3.2')
-    op3_3=request.POST.get('Op3.3')
-    op3_4=request.POST.get('Op3.4')
-    ques4=request.POST.get('Q4')
-    ans4=request.POST.get('A4')
-    op4_1=request.POST.get('Op4.1')
-    op4_2=request.POST.get('Op4.2')
-    op4_3=request.POST.get('Op4.3')
-    op4_4=request.POST.get('Op4.4')
-    ques5=request.POST.get('Q5')
-    ans5=request.POST.get('A5')
-    op5_1=request.POST.get('Op5.1')
-    op5_2=request.POST.get('Op5.2')
-    op5_3=request.POST.get('Op5.3')
-    op5_4=request.POST.get('Op5.4')
-    quiz=quizzes(quiz_name=name,username=user,topics=topics,questions=questions,time=time,ques1=ques1,ques2=ques2,ques3=ques3,ques4=ques4,ques5=ques5,ans1=ans1,ans2=ans2,ans3=ans3,ans4=ans4,ans5=ans5,op1_1=op1_1,op1_2=op1_2,op1_3=op1_3,op1_4=op1_4,op2_1=op2_1,op2_2=op2_2,op2_3=op2_3,op2_4=op2_4,op3_1=op3_1,op3_2=op3_2,op3_3=op3_3,op3_4=op3_4,op4_1=op4_1,op4_2=op4_2,op4_3=op4_3,op4_4=op4_4,op5_1=op5_1,op5_2=op5_2,op5_3=op5_3,op5_4=op5_4,)
+
+    if quizzes.objects.filter(quiz_name=name).exists():
+      messages.warning(request, 'The quiz name already exits. Use another one')
+      return redirect(create)
+    quiz=quizzes(quiz_name=name,topics=topics,questions=question,time=time)
     quiz.save()
-    return redirect(home)
+    context={
+      
+      'quizname':name,
+      'num':question,
+      'range':range(1,int(question)+1)
+
+    }
+    return render(request,'createques.html',context)
   return render(request,'createquiz.html')
+
+
