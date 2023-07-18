@@ -21,5 +21,6 @@ urlpatterns = [
     path('mlquiz', views.mlquiz, name='mlquiz'),
     path('djangoquiz', views.djangoquiz, name='djangoquiz'),
     path('adminquiz/<name>', views.adminquiz, name='adminquiz'),
+    path('adminquiz/answers/<name>', views.quizans, name='quizans'),
 
 ]

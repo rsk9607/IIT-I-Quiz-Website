@@ -184,8 +184,10 @@ def djangoquiz(request):
 
 def adminquiz(request,name):
   admquiz=quizzes.objects.filter(quiz_name=name)[0]
+  questions=questionare.objects.filter(quiz=admquiz)
   context={
-    'admque':admquiz
+    'admque':questions,
+    'admquiz':admquiz
   }
   return render(request,'adminquiz.html',context)
 
@@ -204,6 +206,14 @@ def quiz(request):
   }
   return render(request,'quizzesactive.html',context)
 
+def quizans(request,name):
+  admquiz=quizzes.objects.filter(quiz_name=name)[0]
+  questions=questionare.objects.filter(quiz=admquiz)
+  context={
+    'admque':questions,
+    'admquiz':admquiz
+  }
+  return render(request,'quizanswer.html',context)
 def create(request):
   if request.method=='POST':
     if 'Q1' in request.POST:

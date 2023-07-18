@@ -384,7 +384,8 @@
     <div class="info_box">
         <div class="info-title"><span>Some Rules of this Quiz</span></div>
         <div class="info-list">
-            <div class="info">1. You will have only 10 minutes <span>(600 seconds)</span> for all the questions.</div>
+            <div class="info">1. You will have only {{admquiz.time}} minutes for all the questions.</div>
+            <div class="info">2. There are {{admquiz.questions}} questions in total.</div>
             <div class="info">2. Once you select your answer, it can't be undone.</div>
             <div class="info">3. You can't exit from the Quiz while you're playing.</div>
             <div class="info">4. You'll get points on the basis of your correct answers.</div>
@@ -400,7 +401,7 @@
             <div class="title">Quizocrats</div>
             <div class="timer">
                 <div class="time_left_txt">Time Left</div>
-                <div class="timer_sec">10</div>
+                <div class="timer_sec">{{admquiz.time}}</div>
                 <div class="timer_sec1">00</div>
             </div>
             <div class="time_line"></div>
@@ -436,7 +437,7 @@
         <div class="buttons">
            
             <button class="quit">Go Back</button>
-            <a class="answerslink" href="pythonAnswers">Answers</a>
+            <a class="answerslink" href="answers/{{admquiz.quiz_name}}">Answers</a>
         </div>
     </div>
  
@@ -446,67 +447,23 @@
 <script>
     
     let questions = [
-  {
-  numb: 1,
-  question: "{{admque.ques1}}",
-  
-  answer: "{{admque.ans1}}",
-  options: [
-   "{{admque.op1_1}}",
-   "{{admque.op1_2}}", 
-   "{{admque.op1_3}}",
-   "{{admque.op1_4}}"
-  ]
-},
-  {
-  numb: 2,
-  question: "{{admque.ques2}}",
-  
-  answer: "{{admque.ans2}}",
-  options: [
-   "{{admque.op2_1}}",
-   "{{admque.op2_2}}", 
-   "{{admque.op2_3}}",
-   "{{admque.op2_4}}"
-  ]
-},
-  {
-  numb: 3,
-  question: "{{admque.ques3}}",
-  
-  answer: "{{admque.ans3}}",
-  options: [
-   "{{admque.op3_1}}",
-   "{{admque.op3_2}}", 
-   "{{admque.op3_3}}",
-   "{{admque.op3_4}}"
-  ]
-},
-  {
-    numb: 4,
-    question: "{{admque.ques4}}",
-  
-  answer: "{{admque.ans4}}",
-  options: [
-   "{{admque.op4_1}}",
-   "{{admque.op4_2}}", 
-   "{{admque.op4_3}}",
-   "{{admque.op4_4}}"
-    ]
-},
-  {
-  numb: 5,
-  question: "{{admque.ques5}}",
-  
-  answer: "{{admque.ans5}}",
-  options: [
-   "{{admque.op5_1}}",
-   "{{admque.op5_2}}", 
-   "{{admque.op5_3}}",
-   "{{admque.op5_4}}"
-  ]
-}
-];
+        
+        {% for x in admque %}
+        {
+            numb: {{forloop.counter}},
+            question: "{{x.question}}",
+            answer: "{{x.correct_opt}}",
+            options: [
+                "{{x.opt1}}",
+                "{{x.opt2}}",
+                "{{x.opt3}}",
+                "{{x.opt4}}"
+            ]
+        },
+ 
+        {% endfor %}
+
+    ];
 
   const start_btn = document.querySelector(".start_btn button");
 const info_box = document.querySelector(".info_box");
@@ -529,16 +486,16 @@ exit_btn.onclick = ()=>{
     info_box.classList.remove("activeInfo"); 
 }
 
+let time={{admquiz.time}};
 continue_btn.onclick = ()=>{
     info_box.classList.remove("activeInfo"); 
     quiz_box.classList.add("activeQuiz"); 
     showQuetions(0); 
     queCounter(1); 
-    startTimer(59,9); 
+    startTimer(59,time-1); 
     
 }
-
-let timeValue =  600;
+let timeValue =  time*60;
 let que_count = 0;
 let que_numb = 1;
 let userScore = 0;
