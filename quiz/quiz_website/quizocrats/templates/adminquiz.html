@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <style>
-    {
+    body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -581,6 +581,7 @@ function showResult(){
         let scoreTag = '<span> You got only <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
         scoreText.innerHTML = scoreTag;
     }
+
 }
 
 function startTimer(time1,time){
@@ -613,6 +614,9 @@ function startTimer(time1,time){
 
 function queCounter(index){
     let totalQueCounTag = '<span><p>'+ index +'</p> of <p>'+ questions.length +'</p> Questions</span>';
-    bottom_ques_counter.innerHTML = totalQueCounTag; }
+    bottom_ques_counter.innerHTML = totalQueCounTag;
+}
+
+
 </script>
 </html>

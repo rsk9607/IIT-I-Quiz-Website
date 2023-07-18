@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 from django.template import loader
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.hashers import make_password,check_password
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.shortcuts import redirect
+from datetime import datetime
 from .models import quizzes,questionare
 # Create your views here.
 def home(request):
@@ -214,6 +214,7 @@ def quizans(request,name):
     'admquiz':admquiz
   }
   return render(request,'quizanswer.html',context)
+
 def create(request):
   if request.method=='POST':
     if 'Q1' in request.POST:
@@ -252,4 +253,15 @@ def create(request):
     return render(request,'createques.html',context)
   return render(request,'createquiz.html')
 
+def quizexisting(request):
+  active_quizzes=quizzes.objects.all()
+  context={
+    'actqui':active_quizzes
+  }
+  return render(request,'quizzesexisting.html',context)
+
+def delete(request,name):
+  quiz=quizzes.objects.filter(quiz_name=name)[0]
+  quiz.delete()
+  return redirect(quizexisting)
 

@@ -22,5 +22,6 @@ urlpatterns = [
     path('djangoquiz', views.djangoquiz, name='djangoquiz'),
     path('adminquiz/<name>', views.adminquiz, name='adminquiz'),
     path('adminquiz/answers/<name>', views.quizans, name='quizans'),
-
+    path('existquiz',views.quizexisting,name='quizzes_existing'),
+    path('delete/<name>',views.delete,name='delete'),
 ]
