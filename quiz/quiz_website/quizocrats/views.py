@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse,JsonResponse
+from django.http import HttpResponse
 from django.template import loader
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.shortcuts import redirect
 from datetime import datetime
-from .models import quizzes,questionare
+from .models import quizzes,questionare,result
 # Create your views here.
 def home(request):
   if request.method=='POST':
@@ -185,11 +185,22 @@ def djangoquiz(request):
 def adminquiz(request,name):
   admquiz=quizzes.objects.filter(quiz_name=name)[0]
   questions=questionare.objects.filter(quiz=admquiz)
-  context={
-    'admque':questions,
-    'admquiz':admquiz
-  }
-  return render(request,'adminquiz.html',context)
+  if request.method=='POST':
+    score=0
+    for i in range(admquiz.questions):
+      givenans=request.POST.get('Q'+str(i+1))
+      if givenans==questions[i].correct_opt:
+        score=1+score
+        print('done')
+    res=result(quiz=admquiz,user=request.user,score=score,date=datetime.today())
+    res.save()
+    return redirect(quiz)          
+  else:
+    context={
+      'admque':questions,
+      'admquiz':admquiz
+    }
+    return render(request,'quizpage.html',context)
 
 def quizanswers(request):
   template = loader.get_template('quizanswers.html')
