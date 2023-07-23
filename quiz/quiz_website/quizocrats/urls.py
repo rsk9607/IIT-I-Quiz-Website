@@ -24,5 +24,4 @@ urlpatterns = [
     path('adminquiz/answers/<name>', views.quizans, name='quizans'),
     path('existquiz',views.quizexisting,name='quizzes_existing'),
     path('delete/<name>',views.delete,name='delete'),
-    path('progress',views.progress,name='progress')
 ]
