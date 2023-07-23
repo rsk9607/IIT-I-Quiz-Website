@@ -276,3 +276,11 @@ def delete(request,name):
   quiz.delete()
   return redirect(quizexisting)
 
+def progress(request):
+  user=request.user
+
+  results=result.objects.filter(user=user)
+  context={
+    'prog':results
+  }
+  return render(request,'progress.html',context)
