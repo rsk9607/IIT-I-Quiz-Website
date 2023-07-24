@@ -22,6 +22,7 @@ class result(models.Model):
     quiz=models.ForeignKey(quizzes,on_delete=models.CASCADE)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     score=models.IntegerField()
+    percent=models.IntegerField()
     date=models.DateTimeField()
     
 class help(models.Model):
