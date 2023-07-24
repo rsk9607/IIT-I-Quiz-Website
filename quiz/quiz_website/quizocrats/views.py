@@ -155,8 +155,8 @@ def adminquiz(request,name):
       givenans=request.POST.get('Q'+str(i+1))
       if givenans==questions[i].correct_opt:
         score=1+score
-        print('done')
-    res=result(quiz=admquiz,user=request.user,score=score,date=datetime.today())
+    per=(score/admquiz.questions)*100
+    res=result(quiz=admquiz,user=request.user,score=score,percent=per,date=datetime.today())
     res.save()
     return redirect(progress)          
   else:
@@ -242,7 +242,7 @@ def delete(request,name):
 
 def progress(request):
   user=request.user
-  results=result.objects.filter(user=user)
+  results=result.objects.filter(user=user).order_by('-date')
   context={
     'prog': results
   }
