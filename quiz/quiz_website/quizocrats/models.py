@@ -24,3 +24,8 @@ class result(models.Model):
     score=models.IntegerField()
     date=models.DateTimeField()
     
+class help(models.Model):
+    name=models.CharField(max_length=50)
+    phone=models.CharField(max_length=10)
+    email=models.EmailField(max_length=254)
+    message=models.TextField()

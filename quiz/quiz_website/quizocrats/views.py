@@ -146,42 +146,6 @@ def help(request):
   else:  
     return render(request, 'help.html')
 
-def samquiz(request):
-  template = loader.get_template('quizpage.html')
-  return HttpResponse(template.render())
-
-def cppquiz(request):
-  template = loader.get_template('cppquiz.html')
-  return HttpResponse(template.render())
-
-def pythonquiz(request):
-  template = loader.get_template('pythonquiz.html')
-  return HttpResponse(template.render())
-
-def htmlquiz(request):
-  template = loader.get_template('htmlquiz.html')
-  return HttpResponse(template.render())
-
-def javascriptquiz(request):
-  template = loader.get_template('javascriptquiz.html')
-  return HttpResponse(template.render())
-
-def cssquiz(request):
-  template = loader.get_template('cssquiz.html')
-  return HttpResponse(template.render())
-
-def aiquiz(request):
-  template = loader.get_template('aiquiz.html')
-  return HttpResponse(template.render())
-
-def mlquiz(request):
-  template = loader.get_template('mlquiz.html')
-  return HttpResponse(template.render())
-
-def djangoquiz(request):
-  template = loader.get_template('djangoquiz.html')
-  return HttpResponse(template.render())
-
 def adminquiz(request,name):
   admquiz=quizzes.objects.filter(quiz_name=name)[0]
   questions=questionare.objects.filter(quiz=admquiz)
@@ -194,7 +158,7 @@ def adminquiz(request,name):
         print('done')
     res=result(quiz=admquiz,user=request.user,score=score,date=datetime.today())
     res.save()
-    return redirect(quiz)          
+    return redirect(progress)          
   else:
     context={
       'admque':questions,
@@ -202,7 +166,7 @@ def adminquiz(request,name):
     }
     return render(request,'quizpage.html',context)
 
-def quizanswers(request):
+
   template = loader.get_template('quizanswers.html')
   return HttpResponse(template.render())
 
@@ -283,3 +247,10 @@ def progress(request):
     'prog': results
   }
   return render(request,'progress.html',context)
+
+def instr(request,name):
+  quiz=quizzes.objects.filter(quiz_name=name)[0]
+  context={
+    'quiz': quiz
+  }
+  return render(request,'instructions.html',context)
