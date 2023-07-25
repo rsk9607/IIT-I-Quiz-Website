@@ -16,4 +16,6 @@ urlpatterns = [
     path('delete/<name>',views.delete,name='delete'),
     path('instr/<name>',views.instr,name='instr'),
     path('progress',views.progress,name='progress'),
+    path('samplequiz',views.sample,name='sample'),
+    path('samplequizanswers',views.sampleans,name='sampleans'),
 ]
