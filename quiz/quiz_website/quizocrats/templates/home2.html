@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
     <title>Home</title>
 </head>
 <style>
@@ -13,8 +14,18 @@
       background-size:100vw;
       background-attachment: fixed;
     }
-  
-
+    .admin{
+        background-image: {% static 'admintab.jpg' %};
+        text-align: center;
+        background-repeat:no-repeat;
+        background-position: center;
+        color: rgb(10, 10, 10);
+    }
+   
+    
+    .col{
+        padding: 15px;
+    }
   
     .box {
       display: flex;
@@ -151,7 +162,7 @@
             </p>
         </div><!-- /.col-lg-4 -->
         {% if user.is_superuser %}
-        <div class="col-md-8 m-5">
+       {% comment %} <div class="col-md-8 m-5">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color: white; color:black;">
                 <div class="col p-4 d-flex flex-column position-static">
                     
@@ -174,7 +185,18 @@
                 <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
               </div>
             </div>
-          </div>
+           </div> {% endcomment %}
+           <div class="admin">
+            <h2>Manage Quizzes</h2>
+           
+            <div class="col">
+                <a class="btn btn-success" href="create" role="button">Create quiz</a>
+            </div>
+            <div class="col">
+                <a class="btn btn-success" href="existquiz" role="button">Existing quizzes</a>
+            </div>
+
+           </div>
         {% endif %}
     </div>
     {% include 'footer.html' %}
