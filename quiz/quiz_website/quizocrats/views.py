@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.shortcuts import redirect
 from datetime import datetime
-from .models import quizzes,questionare,result
+from .models import quizzes,questionare,result,help
 # Create your views here.
 def home(request):
   if request.method=='POST':
@@ -112,8 +112,18 @@ def aboutus(request):
   else:  
     return render(request, 'aboutus.html')
 
-def help(request):
+def helps(request):
   if request.method=='POST':
+    if 'phone' in request.POST:
+      Name=request.POST.get('name')
+      phone=request.POST.get('phone')
+      Email=request.POST.get('email')
+      mssg=request.POST.get('mssg')
+      sent=help.objects.create(name=Name,phone=phone,email=Email,message=mssg)
+      sent.save()
+      messages.success(request, 'Your message has been sent to the admin')
+      return redirect(helps)
+      
     if 'pass1' in request.POST:
       name=request.POST.get('username')
       pas1=request.POST.get('pass1')
