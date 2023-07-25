@@ -264,3 +264,9 @@ def instr(request,name):
     'quiz': quiz
   }
   return render(request,'instructions.html',context)
+
+def sample(request):
+  return render(request,'sample.html')
+
+def sampleans(request):
+  return render(request,'sampleans.html')
