@@ -38,7 +38,11 @@
     </style>
 </head>
 <body>
-   
+    {% if request.user.is_authenticated %}
+    {% include 'base2.html' %}
+    {% else %}
+    {% include 'base.html' %}
+  {% endif %}
      <div class="questions">1.What are the types of lists available in HTML?</div> 
      <div class="options" id="correct">Ordered, Unordered Lists</div>
      <div class="options">Bulleted, Numbered Lists</div>

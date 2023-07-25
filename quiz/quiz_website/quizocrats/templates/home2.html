@@ -7,10 +7,11 @@
     <title>Home</title>
 </head>
 <style>
-    .bomy {
+    body {
       background-image: url(https://www.leadquizzes.com/wp-content/uploads/2019/02/New-blog-graphic.jpg);
       background-repeat:repeat-y;
       background-size:100vw;
+      background-attachment: fixed;
     }
   
 
@@ -22,7 +23,18 @@
     }
     .boxy{
       width: 100%;
-      margin: 25px;
+      margin-bottom: 25px;
+    }
+    .container{
+        width:100%;
+        padding:0px;
+    }
+    .carousel-inner img{
+        width:100%;
+        height:400px;
+    }
+    .row justify-content-center my-5{
+        background-image:none;
     }
   </style>
 <body>
@@ -102,21 +114,22 @@
 
 
 
-    <div class="row justify-content-center my-5">
-        <div class="col-lg-2">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <div class="row justify-content-center my-5" style="color: white">
+        <div class="col-lg-3">
+            {% comment %} <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" {% endcomment %}
+                {% comment %} role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"> {% endcomment %}
+                <img src="sample.jpg"  width="200px" height="200px" >  
                 <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
-            </svg>
+                <rect width="50px" height="50px" fill="var(--bs-secondary-color)"></rect>
+            
             <h2 class="fw-normal">Sample Quiz</h2>
             <p>Take a sample quiz to get the experience of our Quizocrats website</p>
             <p>
                 <a class="btn btn-success" href="/samplequiz" role="button">Sample Quiz</a>
             </p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-2">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+        <div class="col-lg-3">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="https://t3.ftcdn.net/jpg/03/45/97/36/360_F_345973621_sMifpCogXNoIDjmXlbLwx1QZA5ZmQVl8.jpg"
                 role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
                 <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
@@ -125,29 +138,44 @@
             <p>Find a suitable quiz for you and improve your knowledge</p>
             <p> <a class="btn btn-success" href="/quiz" role="button">Quizzes</a></p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-2">
+        <div class="col-lg-3">
             <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
                 role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
                 <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
             </svg>
-            <h2 class="fw-normal">Tags</h2>
+            <h2 class="fw-normal">Progress</h2>
             <p>Try all the different tags in our website and test your skills</p>
             <p>
-                <a class="btn btn-success" href="#" role="button">Tags</a>
+                <a class="btn btn-success" href="progress" role="button">Progress</a>
             </p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-2">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
-            </svg>
-            <h2 class="fw-normal">Create Quiz</h2>
-            <p>Want to create a quiz? Use the create quiz option in our website</p>
-            <p><a class="btn btn-success" href="/create" role="button">Create Quiz</a></p>
-            <p><a class="btn btn-success" href="existquiz" role="button">Existing quizzes</a></p>
-        </div><!-- /.col-lg-4 -->
+        {% if user.is_superuser %}
+        <div class="col-md-8 m-5">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color: white; color:black;">
+                <div class="col p-4 d-flex flex-column position-static">
+                    
+                    <h3 class="mb-0">Manage Quizzes</h3>
+                    
+                    <p class="card-text mb-auto">Create new quizzes or edit existing quizzes</p>
+                <div class="col-md-2">
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a class="btn btn-success" href="create" role="button">Create quiz</a>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-success" href="existquiz" role="button">Existing quizzes</a>
+                    </div>
+                </div>
+    
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+              </div>
+            </div>
+          </div>
+        {% endif %}
     </div>
     {% include 'footer.html' %}
 </body>

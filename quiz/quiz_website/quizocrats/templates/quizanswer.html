@@ -38,6 +38,7 @@
     </style>
 </head>
 <body>
+    {% include 'base2.html' %}
     {% for x in admque %}
         <div class="questions">{{forloop.counter}}.{{x.question}}</div> 
         <div class="options" id="correct">{{x.correct_opt}}</div>

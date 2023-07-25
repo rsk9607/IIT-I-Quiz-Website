@@ -81,6 +81,17 @@ textarea{
         {% else %}
         {% include 'base.html' %}
     {% endif %}
+    {% if messages %}
+ 
+    {% for message in messages %}
+         
+         <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+            <strong>{{ message }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+ 
+    {% endif %}
     <div class="help-container">
         <h1>Need any help?</h1>
         <p>
@@ -89,26 +100,27 @@ textarea{
         <div class="help-box">
             <div class="help-left">
                 <h2>Give your responce</h2>
-                <form action="">
+                <form method="post">
+                    {% csrf_token %}
                     <div class="input-row">
                         <div class="input-group">
                             
                             <label >Name</label>
-                            <input type="text" placeholder="Yuvraj Maurya">
+                            <input type="text" name="name" placeholder="Yuvraj Maurya">
                         </div>
                         <div class="input-group">
                         
                             <label >Phone</label>
-                            <input type="text" placeholder="9876543210">
+                            <input type="text" name="phone" placeholder="9876543210">
                         </div>
                         <div class="input-group">
                             
                             <label >Email</label>
-                            <input type="text" placeholder="abc@gmail.com">
+                            <input type="text" name="email" placeholder="abc@gmail.com">
                         </div>
                     </div>
                     <label > Message</label>
-                    <textarea rows="5" placeholder="Your Message"></textarea>
+                    <textarea rows="5" name="mssg" placeholder="Your Message"></textarea>
                     <button type="submit">SEND</button>
                 </form>
             </div>

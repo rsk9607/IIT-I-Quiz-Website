@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.shortcuts import redirect
 from datetime import datetime
-from .models import quizzes,questionare,result
+from .models import quizzes,questionare,result,help
 # Create your views here.
 def home(request):
   if request.method=='POST':
@@ -112,8 +112,18 @@ def aboutus(request):
   else:  
     return render(request, 'aboutus.html')
 
-def help(request):
+def helps(request):
   if request.method=='POST':
+    if 'phone' in request.POST:
+      Name=request.POST.get('name')
+      phone=request.POST.get('phone')
+      Email=request.POST.get('email')
+      mssg=request.POST.get('mssg')
+      sent=help.objects.create(name=Name,phone=phone,email=Email,message=mssg)
+      sent.save()
+      messages.success(request, 'Your message has been sent to the admin')
+      return redirect(helps)
+      
     if 'pass1' in request.POST:
       name=request.POST.get('username')
       pas1=request.POST.get('pass1')
@@ -146,42 +156,6 @@ def help(request):
   else:  
     return render(request, 'help.html')
 
-def samquiz(request):
-  template = loader.get_template('quizpage.html')
-  return HttpResponse(template.render())
-
-def cppquiz(request):
-  template = loader.get_template('cppquiz.html')
-  return HttpResponse(template.render())
-
-def pythonquiz(request):
-  template = loader.get_template('pythonquiz.html')
-  return HttpResponse(template.render())
-
-def htmlquiz(request):
-  template = loader.get_template('htmlquiz.html')
-  return HttpResponse(template.render())
-
-def javascriptquiz(request):
-  template = loader.get_template('javascriptquiz.html')
-  return HttpResponse(template.render())
-
-def cssquiz(request):
-  template = loader.get_template('cssquiz.html')
-  return HttpResponse(template.render())
-
-def aiquiz(request):
-  template = loader.get_template('aiquiz.html')
-  return HttpResponse(template.render())
-
-def mlquiz(request):
-  template = loader.get_template('mlquiz.html')
-  return HttpResponse(template.render())
-
-def djangoquiz(request):
-  template = loader.get_template('djangoquiz.html')
-  return HttpResponse(template.render())
-
 def adminquiz(request,name):
   admquiz=quizzes.objects.filter(quiz_name=name)[0]
   questions=questionare.objects.filter(quiz=admquiz)
@@ -191,10 +165,10 @@ def adminquiz(request,name):
       givenans=request.POST.get('Q'+str(i+1))
       if givenans==questions[i].correct_opt:
         score=1+score
-        print('done')
-    res=result(quiz=admquiz,user=request.user,score=score,date=datetime.today())
+    per=(score/admquiz.questions)*100
+    res=result(quiz=admquiz,user=request.user,score=score,percent=per,date=datetime.today())
     res.save()
-    return redirect(quiz)          
+    return redirect(progress)          
   else:
     context={
       'admque':questions,
@@ -202,7 +176,7 @@ def adminquiz(request,name):
     }
     return render(request,'quizpage.html',context)
 
-def quizanswers(request):
+
   template = loader.get_template('quizanswers.html')
   return HttpResponse(template.render())
 
@@ -276,3 +250,23 @@ def delete(request,name):
   quiz.delete()
   return redirect(quizexisting)
 
+def progress(request):
+  user=request.user
+  results=result.objects.filter(user=user).order_by('-date')
+  context={
+    'prog': results
+  }
+  return render(request,'progress.html',context)
+
+def instr(request,name):
+  quiz=quizzes.objects.filter(quiz_name=name)[0]
+  context={
+    'quiz': quiz
+  }
+  return render(request,'instructions.html',context)
+
+def sample(request):
+  return render(request,'sample.html')
+
+def sampleans(request):
+  return render(request,'sampleans.html')
