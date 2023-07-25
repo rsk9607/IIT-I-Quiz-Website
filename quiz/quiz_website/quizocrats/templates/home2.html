@@ -14,8 +14,18 @@
       background-size:100vw;
       background-attachment: fixed;
     }
-  
-
+    
+    .manage{
+        color: black;
+        text-align: center;
+        padding: 15px;
+        background-image: url(https://img.freepik.com/premium-photo/keyboard-with-notepad-coffee-with-stationary-table_218381-3829.jpg?w=360);
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .col{
+        padding: 10px;
+    }
   
     .box {
       display: flex;
@@ -31,8 +41,8 @@
         padding:0px;
     }
     .carousel-inner img{
-        width:100%;
-        height:400px;
+        width:80%;
+        height:600px;
     }
     .row justify-content-center my-5{
         background-image:none;
@@ -41,7 +51,7 @@
 <body>
     {% include 'base2.html' %}
     <div class="bomy">
-        <div class="container" style="color: white;">
+        <div class="container pt-5" style="color: white;">
             <div class="box">
                 <h1>Quizocrats</h1>
             </div>
@@ -51,16 +61,13 @@
                 <h3>Welcome to our Quiz Website</h3>
             </div>
             <div class="box">
-                <p>Discover New Questions Here!</p>
+                <h5>Unlock the Power of Knowledge and test your Intellect on our website!</h5>
 
-            </div>
-            <div class="box">
-                <p> Are you looking for a QUIZ? Then you are at right place.</p>
             </div>
 
         </div>
-
-                    <div id="carouselExampleCaptions" class="carousel slide">
+             <div class="container">
+                                 <div id="carouselExampleCaptions" class="carousel slide">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
                                 class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -74,23 +81,24 @@
                                 <img src="https://t3.ftcdn.net/jpg/03/45/97/36/360_F_345973621_sMifpCogXNoIDjmXlbLwx1QZA5ZmQVl8.jpg"
                                     class="d-block w-100" alt="...">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Best Quizzing website</h5>
+                                    <h2>SIGN UP NOW!</h2>
+                                    <h5>Elevate your wisdom with our thought provoking quizzes!</h5>
 
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="https://t3.ftcdn.net/jpg/03/45/97/36/360_F_345973621_sMifpCogXNoIDjmXlbLwx1QZA5ZmQVl8.jpg"
+                                <img src="https://img.freepik.com/premium-vector/technology-background-with-hitech-digital-data_29971-1339.jpg?w=360"
                                     class="d-block w-100" alt="...">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Easy Creation of Quiz</h5>
+                                    <h3>Challenge your mind,explore new horizons,and have fun with our captivating quizzes!</h3>
 
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="https://t3.ftcdn.net/jpg/03/45/97/36/360_F_345973621_sMifpCogXNoIDjmXlbLwx1QZA5ZmQVl8.jpg"
+                                <img src="https://media.istockphoto.com/id/1344939844/photo/hand-holding-drawing-virtual-lightbulb-with-brain-on-bokeh-background-for-creative-and-smart.jpg?s=612x612&w=0&k=20&c=2GLUy6eqCSr0NFRO8CHm8_PUMy9Qc8ryqcsRoe0DEYM="
                                     class="d-block w-100" alt="...">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Many topics to segregate</h5>
+                                    <h3>Enhance your skills  through attempting our quizzes! </h3>
 
                                 </div>
                             </div>
@@ -106,7 +114,7 @@
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
-                
+                </div>
 
 
 
@@ -130,14 +138,14 @@
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-3">
             <img src="{% static 'results.jpg' %}"  width="200px" height="200px" style="border-radius: 50%;" >
-            <h2 class="fw-normal">Progress</h2>
-            <p>Try all the different tags in our website and test your skills</p>
+            <h2 class="fw-normal">Results</h2>
+            <p>Have a look on your Performances in different quizzes</p>
             <p>
                 <a class="btn btn-success" href="progress" role="button">Progress</a>
             </p>
         </div><!-- /.col-lg-4 -->
         {% if user.is_superuser %}
-        <div class="col-md-8 m-5">
+        {% comment %} <div class="col-md-8 m-5"> 
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color: white; color:black;">
                 <div class="col p-4 d-flex flex-column position-static">
                     
@@ -160,6 +168,16 @@
                 <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
               </div>
             </div>
+          </div>{% endcomment %}
+          <div class="manage">
+            <h2>Manage Quiz Here!</h2>
+            <div class="col">
+                <a class="btn btn-success" href="create" role="button">Create quiz</a>
+            </div>
+            <div class="col">
+                <a class="btn btn-success" href="existquiz" role="button">Existing quizzes</a>
+            </div>
+
           </div>
         {% endif %}
     </div>
