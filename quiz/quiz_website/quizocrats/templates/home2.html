@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <title>Home</title>
+    {% load static %}
 </head>
 <style>
     body {
@@ -69,9 +70,7 @@
             </div>
 
         </div>
-        <div class="box">
-            <div class="boxy">
-                <div class="container">
+
                     <div id="carouselExampleCaptions" class="carousel slide">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
@@ -118,21 +117,15 @@
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                
+
 
 
 
     <div class="row justify-content-center my-5" style="color: white">
         <div class="col-lg-3">
-            {% comment %} <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" {% endcomment %}
-                {% comment %} role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"> {% endcomment %}
-                <img src="sample.jpg"  width="200px" height="200px" >  
-                <title>Placeholder</title>
-                <rect width="50px" height="50px" fill="var(--bs-secondary-color)"></rect>
-            
+
+            <img src="{% static 'sample.jpg' %}"  width="200px" height="200px" style="border-radius: 50%;" >
             <h2 class="fw-normal">Sample Quiz</h2>
             <p>Take a sample quiz to get the experience of our Quizocrats website</p>
             <p>
@@ -140,21 +133,14 @@
             </p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-3">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="https://t3.ftcdn.net/jpg/03/45/97/36/360_F_345973621_sMifpCogXNoIDjmXlbLwx1QZA5ZmQVl8.jpg"
-                role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
-            </svg>
+            <img src="{% static 'quizzes.jpg' %}"  width="200px" height="200px" style="border-radius: 50%;" >
+
             <h2 class="fw-normal">Quizzes</h2>
             <p>Find a suitable quiz for you and improve your knowledge</p>
             <p> <a class="btn btn-success" href="/quiz" role="button">Quizzes</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-3">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
-            </svg>
+            <img src="{% static 'results.jpg' %}"  width="200px" height="200px" style="border-radius: 50%;" >
             <h2 class="fw-normal">Progress</h2>
             <p>Try all the different tags in our website and test your skills</p>
             <p>
