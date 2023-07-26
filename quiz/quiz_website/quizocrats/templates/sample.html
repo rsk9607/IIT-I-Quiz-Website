@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizocrats-Quiz</title>
-
+  {% load static %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <style>
   body{
-    background-image: url(https://cdn.wallpapersafari.com/55/16/STPlzv.jpg);
+    background-image: url({% static 'STPlzv.jpg' %});
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -99,7 +99,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q1">
                 <label class="form-check-label" for="opt_1">
                   Ordered, Unordered Lists
                 </label>
@@ -109,7 +109,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q1">
                 <label class="form-check-label" for="opt_2">
                   Bulleted, Numbered Lists
                 </label>
@@ -119,7 +119,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q1">
                 <label class="form-check-label" for="opt_3">
                   Named, Unnamed Lists
                 </label>
@@ -129,7 +129,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q1">
                 <label class="form-check-label" for="opt_4">
                   None of the above
                 </label>
@@ -144,7 +144,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q2">
                 <label class="form-check-label" for="opt_1">
                   HTML uses User Defined Tags
                 </label>
@@ -154,7 +154,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q2">
                 <label class="form-check-label" for="opt_2">
                   HTML uses tags defined within the language
                 </label>
@@ -164,7 +164,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q2">
                 <label class="form-check-label" for="opt_3">
                   Both
                 </label>
@@ -174,7 +174,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q2">
                 <label class="form-check-label" for="opt_4">
                   None of the above
                 </label>
@@ -189,7 +189,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q3">
                 <label class="form-check-label" for="opt_1">
                     ^
                 </label>
@@ -199,7 +199,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q3">
                 <label class="form-check-label" for="opt_2">
                     #
                 </label>
@@ -209,7 +209,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q3">
                 <label class="form-check-label" for="opt_3">
                     *
                 </label>
@@ -219,7 +219,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q3">
                 <label class="form-check-label" for="opt_4">
                     /
                 </label>
@@ -234,7 +234,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q4">
                 <label class="form-check-label" for="opt_1">
                     id
                 </label>
@@ -244,7 +244,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q4">
                 <label class="form-check-label" for="opt_2">
                     class
                 </label>
@@ -254,7 +254,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q4">
                 <label class="form-check-label" for="opt_3">
                     type
                 </label>
@@ -264,7 +264,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q4">
                 <label class="form-check-label" for="opt_4">
                   None of the above
                 </label>
@@ -279,7 +279,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q5">
                 <label class="form-check-label" for="opt_1">
                     src
                 </label>
@@ -289,7 +289,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q5">
                 <label class="form-check-label" for="opt_2">
                     alt
                 </label>
@@ -299,7 +299,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q5">
                 <label class="form-check-label" for="opt_3">
                     longdesc
                 </label>
@@ -309,7 +309,7 @@
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">
               <div class="form-check">
-                <input class="form-check-input" type="radio">
+                <input class="form-check-input" type="radio" name="Q5">
                 <label class="form-check-label" for="opt_4">
                     title
                 </label>
