@@ -27,7 +27,7 @@ In case of any problemuse the reference video: https://youtu.be/m-GdL-NDxvE
    ```
 
 * You should be able to run the projet on your localhost i.e. http://localhost:8000/
-
+* Signup with your own email, username and password.
 ## Giving Quiz
 1. Go to quizzes section.
 1. Select a quiz of your choice.
