@@ -53,7 +53,10 @@
     <h1 class="header"><span>Find all available Quizzes here!</span></h1>
  
     {% for x in actqui %}
-    <div class="quiz_links"><a href="instr/{{x.quiz_name}}">Quiz on {{x.quiz_name}}</a></div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <a href="instr/{{x.quiz_name}}" class="btn btn-success m-1">Quiz on {{x.quiz_name}}</a>
+      </div>
+    {% comment %} <div class="quiz_links"><a href="instr/{{x.quiz_name}}">Quiz on {{x.quiz_name}}</a></div> {% endcomment %}
     {%empty%}
     <div class="container" style="color: aliceblue;">
         <h2>Oops...! No quizzes at present. Come again later.</h2>

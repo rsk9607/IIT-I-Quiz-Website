@@ -81,18 +81,20 @@ textarea{
         {% include 'base2.html' %}
         {% else %}
         {% include 'base.html' %}
-    {% endif %}
-    {% if messages %}
- 
-    {% for message in messages %}
+        {% endif %}
+        <div class="error pt-5">
+            {% if messages %}
+     
+            {% for message in messages %}
+                 
+                 <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+                    <strong>{{ message }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
          
-         <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
-            <strong>{{ message }}</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            {% endif %}
         </div>
-    {% endfor %}
- 
-    {% endif %}
     <div class="help-container">
         <h1>Need any help?</h1>
         <p>
@@ -134,10 +136,9 @@ textarea{
     
         
                 </div>
-                <h3>Do you want to CONDUCT a quiz?</h3>
-                <p>In this website, You can also create quiz. You can go to <span>Create Quiz</span>tab and can create a new quiz there. </p>
-                <h3>Do you want to know about your progress?</h3>
-                <div>This website stores marks you scored in every quiz you attempted. To know your progress, click <span>Progress</span> icon.</div>
+                <h3>Do you want to check results?</h3>
+                <p>In this website, You can also check results of quizzes you gave. You can go to <span>Results</span>tab and can check results. </p>
+                
                 </div>
             </div>
         </div>
