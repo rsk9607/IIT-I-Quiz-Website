@@ -17,7 +17,7 @@ Welcome to the Quiz Website! This website allows the users to take quizzes on va
 * Open terminal or command promt and navigate to the project directory till you find manage.py
 * Activate your virtual environment using following commands
 ```bash 
-C:\Users\<filelocation>\Medica\medica>Scripts\activate
+C:\Users\<filelocation>\quiz\quiz_website>Scripts\activate
 ```
 In case of any problemuse the reference video: https://youtu.be/m-GdL-NDxvE
 
